@@ -16,6 +16,8 @@ class EssentialsSettingsPage
      */
     private $options;
 
+    private $google_fonts;
+
     /**
      * Start up
      */
@@ -77,7 +79,15 @@ class EssentialsSettingsPage
                 <h3>Looking for support?</h3>
                 <p>Please use the <a href="#">plugin support forums</a> on WordPress.org.</p>
                 <h3>Who are Us?</h3>
-                <p><a href="http://www.gogodigital.it" target="_blank" title="Gogodigital Srls">Gogodigital Srls</a> is a young and innovative Web Agency web agency that deals with Professional Web Sites for Companies and Persons, Responsive Web Sites, CMS Sites and Ecommerce Portals, Applications for Apple devices like iPhone, iPad, iPod, Applications for all Android devices like Samsung Smartphone and Pads, SEO Optimization, Web Marketing, Email Marketing and Social Media Marketing.</p>
+                <p><a href="http://www.gogodigital.it" target="_blank" title="Gogodigital Srls">Gogodigital Srls</a> is a young and innovative Web Agency that deals with Professional Web Sites for Companies and Persons, Responsive Web Sites, CMS Sites and Ecommerce Portals, Applications for Apple devices like iPhone, iPad, iPod, Applications for all Android devices like Samsung Smartphone and Pads, SEO Optimization, Web Marketing, Email Marketing and Social Media Marketing.</p>
+                <h3 style="border-top: 1px solid #ddd; padding-top: 12px">Widget Settings</h3>
+                <p>Remember to add manually the Widget Code on your Wordpress Theme</p>
+                <p class="description" id="tagline-description" style="background-color: #fcf8e3; border-color: #faebcc; border-radius: 4px; color: #8a6d3b; padding: 10px">
+                    if ( is_active_sidebar( 'footer-copyright' ) ) { dynamic_sidebar( 'footer-copyright' ); }
+                </p>
+                <p class="description" id="tagline-description" style="background-color: #fcf8e3; border-color: #faebcc; border-radius: 4px; color: #8a6d3b; padding: 10px">
+                    if ( is_active_sidebar( 'social-icons' ) ) { dynamic_sidebar( 'social-icons' ); }
+                </p>
                 <div style="clear: both"></div>
             </div>
             <div style="clear: both"></div>
@@ -213,7 +223,7 @@ class EssentialsSettingsPage
      */
     public function print_widget_info()
     {
-        print 'Select which <strong>Widget Position</strong> do you wanna register on your Wordpress Theme Widget<br> Remember to add manually the thw Widget Code on your Wordpress Theme';
+        print 'Select which <strong>Widget Position</strong> do you wanna register on your Wordpress Theme Widget';
     }
 
     /**
@@ -355,7 +365,7 @@ class EssentialsSettingsPage
     {
         printf(
             '<input type="text" class="widefat" id="googlefonts" name="essentials_options[googlefonts]" value="%s" />
-             <p class="description" id="tagline-description">Comma separated Fonts like "Open Sans, Roboto"</p>',
+             <p class="description" id="tagline-description">Comma separated Fonts like "Open Sans,Roboto"</p>',
             isset( $this->options['googlefonts'] ) ? esc_attr( $this->options['googlefonts']) : ''
         );
     }
@@ -380,8 +390,6 @@ class EssentialsSettingsPage
         }
 
         $select .= '</select>';
-        $select .= '<p class="description" id="tagline-description">';
-        $select .= "if ( is_active_sidebar( 'footer-copyright' ) ) { dynamic_sidebar( 'footer-copyright' ); } </p>";
 
         printf(
             $select,
@@ -409,8 +417,6 @@ class EssentialsSettingsPage
         }
 
         $select .= '</select>';
-        $select .= '<p class="description" id="tagline-description">';
-        $select .= "if ( is_active_sidebar( 'social-icons' ) ) { dynamic_sidebar( 'social-icons' ); } </p>";
 
         printf(
             $select,
@@ -433,6 +439,7 @@ if( is_admin() )  {
 $essentials_options = get_option('essentials_options');
 
 $googlefonts = str_replace(array(" ",","), array("+","|"), $essentials_options['googlefonts']);
+$googlefonts = "https://fonts.googleapis.com/css?family=".$googlefonts;
 
 // Load Bootstrap
 if( isset( $essentials_options['bootstrap'] ) ) {
@@ -473,7 +480,7 @@ if( isset( $essentials_options['jquerymobile'] ) ) {
 // Load Google Fonts
 if( isset( $essentials_options['googlefonts'] ) ) {
     if ($essentials_options['googlefonts'] != "" ) {
-        wp_enqueue_style( 'googlefonts', 'https://fonts.googleapis.com/css?family='.$googlefonts, false);
+        add_action('wp_enqueue_scripts', 'theme_add_googlefonts');
     }
 }
 
@@ -544,6 +551,16 @@ function theme_add_bootstrap_cdn()
     wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), '3.3.7', 'all');
     wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array(), '3.3.7', true );
 }
+
+/**
+ * Adding Fontawesome css and js
+ */
+function theme_add_googlefonts()
+{
+    global $googlefonts;
+    wp_enqueue_style( 'googlefonts', $googlefonts, false);
+}
+
 
 /**
  * Adding Fontawesome css and js
