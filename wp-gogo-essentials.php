@@ -564,8 +564,8 @@ function footer_copyright_widgets_init()
 {
     register_sidebar( array(
         'name'          => 'Footer Copyright',
-        'id'            => 'footer_copyright',
-        'before_widget' => '<div>',
+        'id'            => 'footer-copyright',
+        'before_widget' => '<div class="widget-copyright">',
         'after_widget'  => '</div>',
         'before_title'  => '<h2 class="rounded">',
         'after_title'   => '</h2>',
@@ -579,8 +579,8 @@ function socialicons_widgets_init()
 {
     register_sidebar( array(
         'name'          => 'Social Icons',
-        'id'            => 'social_icons',
-        'before_widget' => '<div>',
+        'id'            => 'social-icons',
+        'before_widget' => '<div class="widget-social-icons"',
         'after_widget'  => '</div>',
         'before_title'  => '<h2 class="rounded">',
         'after_title'   => '</h2>',
