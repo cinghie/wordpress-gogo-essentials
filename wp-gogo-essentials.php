@@ -213,7 +213,7 @@ class EssentialsSettingsPage
      */
     public function print_widget_info()
     {
-        print 'Select which <strong>Widget Position</strong> do you wanna register on your Wordpress Theme Widget<br> Remember to add manually the Widgets on your Wordpress Theme';
+        print 'Select which <strong>Widget Position</strong> do you wanna register on your Wordpress Theme Widget<br> Remember to add manually the thw Widget Code on your Wordpress Theme';
     }
 
     /**
@@ -380,6 +380,8 @@ class EssentialsSettingsPage
         }
 
         $select .= '</select>';
+        $select .= '<p class="description" id="tagline-description">';
+        $select .= "if ( is_active_sidebar( 'footer-copyright' ) ) { dynamic_sidebar( 'footer-copyright' ); } </p>";
 
         printf(
             $select,
@@ -407,6 +409,8 @@ class EssentialsSettingsPage
         }
 
         $select .= '</select>';
+        $select .= '<p class="description" id="tagline-description">';
+        $select .= "if ( is_active_sidebar( 'social-icons' ) ) { dynamic_sidebar( 'social-icons' ); } </p>";
 
         printf(
             $select,
