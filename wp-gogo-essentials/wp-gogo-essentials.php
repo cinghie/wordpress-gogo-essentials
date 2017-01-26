@@ -601,7 +601,7 @@ function socialicons_widgets_init()
     register_sidebar( array(
         'name'          => 'Social Icons',
         'id'            => 'social-icons',
-        'before_widget' => '<div class="widget-social-icons"',
+        'before_widget' => '<div class="widget-social-icons">',
         'after_widget'  => '</div>',
         'before_title'  => '<h2 class="rounded">',
         'after_title'   => '</h2>',
