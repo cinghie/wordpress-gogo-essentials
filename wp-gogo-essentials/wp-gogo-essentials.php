@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/cinghie/wordpress-gogo-bootstrap
  * Description: Manage Essentials settings on your Wordpress site
  * Author: Gogodigital S.r.l.s.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author URI: http://www.gogodigital.it
  **/
 
@@ -88,6 +88,9 @@ class EssentialsSettingsPage
                 <p class="description" id="tagline-description" style="background-color: #fcf8e3; border-color: #faebcc; border-radius: 4px; color: #8a6d3b; padding: 10px">
                     if ( is_active_sidebar( 'social-icons' ) ) { dynamic_sidebar( 'social-icons' ); }
                 </p>
+                <p class="description" id="tagline-description" style="background-color: #fcf8e3; border-color: #faebcc; border-radius: 4px; color: #8a6d3b; padding: 10px">
+                    <a href="https://github.com/cinghie/wordpress-gogo-essentials/blob/master/docs/footer_top_position.md" target="_blank">Footer Top Example</a>
+                </p>
                 <div style="clear: both"></div>
             </div>
             <div style="clear: both"></div>
@@ -169,6 +172,14 @@ class EssentialsSettingsPage
         );
 
         add_settings_field(
+            'widgetcopyrighttop',
+            'Copyright Top Widget Position',
+            array( $this, 'widgetcopyrighttop_callback' ),
+            'template-settings',
+            'widget_settings_id'
+        );
+
+        add_settings_field(
             'widgetsocialicons',
             'Social Icons Widget Position',
             array( $this, 'widgetsocialicons_callback' ),
@@ -203,6 +214,9 @@ class EssentialsSettingsPage
 
         if( isset( $input['widgetcopyright'] ) )
             $new_input['widgetcopyright'] = sanitize_text_field( $input['widgetcopyright'] );
+
+        if( isset( $input['widgetcopyrighttop'] ) )
+            $new_input['widgetcopyrighttop'] = sanitize_text_field( $input['widgetcopyrighttop'] );
 
         if( isset( $input['widgetsocialicons'] ) )
             $new_input['widgetsocialicons'] = sanitize_text_field( $input['widgetsocialicons'] );
@@ -375,7 +389,7 @@ class EssentialsSettingsPage
      */
     public function widgetcopyright_callback()
     {
-        $select  = '<select id="widgetcopyright" name="essentials_options[widgetcopyright]" aria-describedby="timezone-description">';
+        $select  = '<select id="widgetcopyright" name="essentials_options[widgetcopyright]" aria-describedby="widget-copyright">';
 
         if($this->options['widgetcopyright'] == "not-active") {
             $select .= '<option value="not-active" selected="selected">Not Active</option>';
@@ -400,9 +414,36 @@ class EssentialsSettingsPage
     /**
      * Get the settings option array and print one of its values
      */
+    public function widgetcopyrighttop_callback()
+    {
+        $select  = '<select id="widgetcopyrighttop" name="essentials_options[widgetcopyrighttop]" aria-describedby="widget-copyright-top">';
+
+        if($this->options['widgetcopyrighttop'] == "not-active") {
+            $select .= '<option value="not-active" selected="selected">Not Active</option>';
+        } else {
+            $select .= '<option value="not-active">Not Active</option>';
+        }
+
+        if($this->options['widgetcopyrighttop'] == "active") {
+            $select .= '<option value="active" selected="selected">Active</option>';
+        } else {
+            $select .= '<option value="active">Active</option>';
+        }
+
+        $select .= '</select>';
+
+        printf(
+            $select,
+            isset( $this->options['widgetcopyrighttop'] ) ? esc_attr( $this->options['widgetcopyrighttop']) : ''
+        );
+    }
+
+    /**
+     * Get the settings option array and print one of its values
+     */
     public function widgetsocialicons_callback()
     {
-        $select  = '<select id="widgetsocialicons" name="essentials_options[widgetsocialicons]" aria-describedby="timezone-description">';
+        $select  = '<select id="widgetsocialicons" name="essentials_options[widgetsocialicons]" aria-describedby="widget-social-icons">';
 
         if($this->options['widgetsocialicons'] == "not-active") {
             $select .= '<option value="not-active" selected="selected">Not Active</option>';
@@ -488,6 +529,16 @@ if( isset( $essentials_options['googlefonts'] ) ) {
 if( isset( $essentials_options['widgetcopyright'] ) ) {
     if ($essentials_options["widgetcopyright"] === "active") {
         add_action( 'widgets_init', 'footer_copyright_widgets_init' );
+    }
+}
+
+// Load Copyright Top Widget Position
+if( isset( $essentials_options['widgetcopyrighttop'] ) ) {
+    if ($essentials_options["widgetcopyrighttop"] === "active") {
+        add_action( 'widgets_init', 'footer_copyright_top1_widgets_init' );
+        add_action( 'widgets_init', 'footer_copyright_top2_widgets_init' );
+        add_action( 'widgets_init', 'footer_copyright_top3_widgets_init' );
+        add_action( 'widgets_init', 'footer_copyright_top4_widgets_init' );
     }
 }
 
@@ -590,6 +641,66 @@ function footer_copyright_widgets_init()
         'after_widget'  => '</div>',
         'before_title'  => '<h2 class="rounded">',
         'after_title'   => '</h2>',
+    ) );
+}
+
+/*
+ * Adding Copyright Top1 Widget Position
+ */
+function footer_copyright_top1_widgets_init()
+{
+    register_sidebar( array(
+        'name'          => 'Footer Copyright Top1',
+        'id'            => 'footer-copyright-top1',
+        'before_widget' => '<div class="widget-copyright-top1">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="rounded">',
+        'after_title'   => '</h3>',
+    ) );
+}
+
+/*
+ * Adding Copyright Top2 Widget Position
+ */
+function footer_copyright_top2_widgets_init()
+{
+    register_sidebar( array(
+        'name'          => 'Footer Copyright Top2',
+        'id'            => 'footer-copyright-top2',
+        'before_widget' => '<div class="widget-copyright-top2">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="rounded">',
+        'after_title'   => '</h3>',
+    ) );
+}
+
+/*
+ * Adding Copyright Top3 Widget Position
+ */
+function footer_copyright_top3_widgets_init()
+{
+    register_sidebar( array(
+        'name'          => 'Footer Copyright Top3',
+        'id'            => 'footer-copyright-top3',
+        'before_widget' => '<div class="widget-copyright-top3">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="rounded">',
+        'after_title'   => '</h3>',
+    ) );
+}
+
+/*
+ * Adding Copyright Top4 Widget Position
+ */
+function footer_copyright_top4_widgets_init()
+{
+    register_sidebar( array(
+        'name'          => 'Footer Copyright Top4',
+        'id'            => 'footer-copyright-top4',
+        'before_widget' => '<div class="widget-copyright-top4">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="rounded">',
+        'after_title'   => '</h3>',
     ) );
 }
 

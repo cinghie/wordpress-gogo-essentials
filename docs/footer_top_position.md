@@ -1,9 +1,9 @@
 Footer Top Position
-===================
+-------------------
 
 To insert Footer Top Position insert in your theme something like:
 
-...
+```
 <div class="footer-top">
 
     <div class="col-md-3">
@@ -31,4 +31,4 @@ To insert Footer Top Position insert in your theme something like:
     </div>
 
 </div>
-...
+```
