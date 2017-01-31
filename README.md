@@ -13,6 +13,10 @@ WP Gogo Essentials is a Wordpress Plugin to Manage Essentials settings on your W
  - Load Google Fonts
  
 ## Widgets Settings 
- 
+
+ - Register Footer Top 1 Widget
+ - Register Footer Top 2 Widget
+ - Register Footer Top 3 Widget
+ - Register Footer Top 4 Widget
  - Register Footer Copyright Widget
  - Register Social Icons Widget
