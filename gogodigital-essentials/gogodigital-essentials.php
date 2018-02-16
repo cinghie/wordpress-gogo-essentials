@@ -1,13 +1,23 @@
 <?php
 
 /**
- * Plugin Name: WP Gogo Essentials
+ * Plugin Name: Gogodigital Essentials
  * Plugin URI: https://github.com/cinghie/wordpress-gogo-bootstrap
  * Description: Manage Essentials settings on your Wordpress site
  * Author: Gogodigital S.r.l.s.
- * Version: 1.1.0
+ * Version: 2.0.0
  * Author URI: http://www.gogodigital.it
  **/
+
+define( 'GOGO_ESSENTIALS_VERSION', '2.1.0' );
+define( 'GOGO_ESSENTIALS_PATH', plugin_dir_path(__FILE__) );
+define( 'GOGO_ESSENTIALS_URL', plugin_dir_url(__FILE__) );
+
+if ( !defined( 'ABSPATH' ) ) {
+	header( 'Status: 403 Forbidden' );
+	header( 'HTTP/1.1 403 Forbidden' );
+	exit;
+}
 
 class EssentialsSettingsPage
 {
@@ -15,7 +25,6 @@ class EssentialsSettingsPage
      * Holds the values to be used in the fields callbacks
      */
     private $options;
-
     private $google_fonts;
 
     /**
@@ -34,7 +43,7 @@ class EssentialsSettingsPage
     {
         add_options_page(
             'Essentials Settings Admin',
-            'WP Essentials',
+            'Essentials',
             'manage_options',
             'essentials-settings',
             array( $this, 'create_admin_page' )
@@ -50,7 +59,7 @@ class EssentialsSettingsPage
         ?>
         <div class="wrap">
             <div style="border-right: 1px solid #ddd; float: left; padding-right: 2%;  width: 50%">
-                <h1>WP Gogo Essentials Settings</h1>
+                <h1><?php echo  __( 'Gogodigital Essentials Settings', 'gogodigital-essentials' ) ?></h1>
                 <form method="post" action="options.php">
                     <?php
                     settings_fields( 'framework_group' );
@@ -72,14 +81,14 @@ class EssentialsSettingsPage
                 </div>
                 <p>Some other ways to support this plugin</p>
                 <ul>
-                    <li><a href="http://wordpress.org/support/view/plugin-reviews/wp-gogo-essentials?rate=5#postform" target="_blank">Leave a ????? review on WordPress.org</a></li>
-                    <li><a href="https://twitter.com/intent/tweet/?text=I+am+using+Wordpress+%22WP+GoGo+Essentials%22+plugin+to+manage+essentials+setings+on+my+WordPress+site.&amp" target="_blank">Tweet about this plugin</a></li>
-                    <li><a href="http://wordpress.org/plugins/wp-gogo-essentials/#compatibility" target="_blank">Vote "works" on the WordPress.org plugin page</a></li>
+                    <li><a href="http://wordpress.org/support/view/plugin-reviews/wp-gogo-cookie-consent?rate=5#postform" target="_blank">Leave a ★★★★★ review on WordPress.org</a></li>
+                    <li><a href="https://twitter.com/intent/tweet/?text=I+am+using+Wordpress+%22WP+GoGo+Cookie+Consent%22+plugin+to+show+simple+cookie+alert+message+on+my+WordPress+site.&amp" target="_blank">Tweet about this plugin</a></li>
+                    <li><a href="http://wordpress.org/plugins/wp-gogo-cookie-consent/#compatibility" target="_blank">Vote "works" on the WordPress.org plugin page</a></li>
                 </ul>
                 <h3>Looking for support?</h3>
                 <p>Please use the <a href="#">plugin support forums</a> on WordPress.org.</p>
                 <h3>Who are Us?</h3>
-                <p><a href="http://www.gogodigital.it" target="_blank" title="Gogodigital Srls">Gogodigital Srls</a> is a young and innovative Web Agency that deals with Professional Web Sites for Companies and Persons, Responsive Web Sites, CMS Sites and Ecommerce Portals, Applications for Apple devices like iPhone, iPad, iPod, Applications for all Android devices like Samsung Smartphone and Pads, SEO Optimization, Web Marketing, Email Marketing and Social Media Marketing.</p>
+                <p><a href="http://www.gogodigital.it" target="_blank" title="Gogodigital Srls">Gogodigital Srls</a> is a young and innovative web agency that deals with Professional Web Sites for Companies and Persons, Responsive Web Sites, CMS Sites and Ecommerce Portals, Applications for Apple devices like iPhone, iPad, iPod, Applications for all Android devices like Samsung Smartphone and Pads, SEO Optimization, Web Marketing, Email Marketing and Social Media Marketing.</p>
                 <h3 style="border-top: 1px solid #ddd; padding-top: 12px">Widget Settings</h3>
                 <p>Remember to add manually the Widget Code on your Wordpress Theme</p>
                 <p class="description" id="tagline-description" style="background-color: #fcf8e3; border-color: #faebcc; border-radius: 4px; color: #8a6d3b; padding: 10px">
@@ -554,8 +563,8 @@ if( isset( $essentials_options['widgetsocialicons'] ) ) {
  */
 function theme_add_jquerymobile()
 {
-    wp_enqueue_style( 'jquerymobile', wp_gogo_essentials_get_plugin_url() . '/css/jquery.mobile-1.4.5.min.css', array(), '1.4.5', 'all');
-    wp_enqueue_script( 'jquerymobile', wp_gogo_essentials_get_plugin_url(). '/js/jquery.mobile-1.4.5.min.js', array(), '1.4.5', true );
+    wp_enqueue_style( 'jquerymobile', gogodigital_essentials_get_plugin_url() . '/css/jquery.mobile-1.4.5.min.css', array(), '1.4.5', 'all');
+    wp_enqueue_script( 'jquerymobile', gogodigital_essentials_get_plugin_url(). '/js/jquery.mobile-1.4.5.min.js', array(), '1.4.5', true );
 }
 
 /**
@@ -572,8 +581,8 @@ function theme_add_jquerymobile_cdn()
  */
 function theme_add_jqueryui()
 {
-    wp_enqueue_style( 'jqueryui', wp_gogo_essentials_get_plugin_url() . '/css/jquery-ui.min.css', array(), '1.12.1', 'all');
-    wp_enqueue_script( 'jqueryui', wp_gogo_essentials_get_plugin_url(). '/js/jquery-ui.min.js', array(), '1.12.1', true );
+    wp_enqueue_style( 'jqueryui', gogodigital_essentials_get_plugin_url() . '/css/jquery-ui.min.css', array(), '1.12.1', 'all');
+    wp_enqueue_script( 'jqueryui', gogodigital_essentials_get_plugin_url(). '/js/jquery-ui.min.js', array(), '1.12.1', true );
 }
 
 /**
@@ -590,8 +599,8 @@ function theme_add_jqueryui_cdn()
  */
 function theme_add_bootstrap()
 {
-    wp_enqueue_style( 'bootstrap', wp_gogo_essentials_get_plugin_url() . '/css/bootstrap.min.css', array(), '3.3.7', 'all');
-    wp_enqueue_script( 'bootstrap', wp_gogo_essentials_get_plugin_url(). '/js/bootstrap.min.js', array(), '3.3.7', true );
+    wp_enqueue_style( 'bootstrap', gogodigital_essentials_get_plugin_url() . '/css/bootstrap.min.css', array(), '3.3.7', 'all');
+    wp_enqueue_script( 'bootstrap', gogodigital_essentials_get_plugin_url(). '/js/bootstrap.min.js', array(), '3.3.7', true );
 }
 
 /**
@@ -618,7 +627,7 @@ function theme_add_googlefonts()
  */
 function theme_add_fontawesome()
 {
-    wp_enqueue_style( 'fontawesome', wp_gogo_essentials_get_plugin_url() . '/css/font-awesome.min.css', array(), '4.7.0', 'all');
+    wp_enqueue_style( 'fontawesome', gogodigital_essentials_get_plugin_url() . '/css/font-awesome.min.css', array(), '4.7.0', 'all');
 }
 
 /**
@@ -723,9 +732,27 @@ function socialicons_widgets_init()
  * Get Plugin URL
  * @return string
  */
-function wp_gogo_essentials_get_plugin_url()
+function gogodigital_essentials_get_plugin_url()
 {
     if ( !function_exists('plugins_url') )
         return get_option('siteurl') . '/wp-content/plugins/' . plugin_basename(dirname(__FILE__));
     return plugins_url(plugin_basename(dirname(__FILE__)));
 }
+
+/**
+ * Settings Button on Plugins Panel
+ */
+function gogodigital_essentials_plugin_action_links($links, $file) {
+
+	static $this_plugin;
+	if ( ! $this_plugin ) $this_plugin = plugin_basename( __FILE__ );
+
+	if ( $file == $this_plugin ){
+		$settings_link = '<a href="options-general.php?page=page=essentials-settings">' . __( 'Settings', 'gogodigital-essentials' ) . '</a>';
+		array_unshift( $links, $settings_link );
+	}
+
+	return $links;
+
+}
+add_filter( 'plugin_action_links', 'gogodigital_essentials_plugin_action_links', 10, 2 );
