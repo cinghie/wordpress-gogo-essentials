@@ -75,7 +75,7 @@ class EssentialsSettingsPage
                     if ( is_active_sidebar( 'footer-copyright' ) ) { dynamic_sidebar( 'footer-copyright' ); }
                 </p>
                 <p class="description" id="tagline-description" style="background-color: #fcf8e3; border-color: #faebcc; border-radius: 4px; color: #8a6d3b; padding: 10px">
-                    <a href="https://github.com/cinghie/wordpress-gogo-essentials/blob/master/docs/footer_top_position.md" target="_blank">Copyright Top Example</a>
+                    <a href="https://github.com/cinghie/wordpress-gogo-essentials/blob/master/docs/footer_top_position.md" target="_blank">Footer Copyright Top Example</a>
                 </p>
                 <p class="description" id="tagline-description" style="background-color: #fcf8e3; border-color: #faebcc; border-radius: 4px; color: #8a6d3b; padding: 10px">
                     if ( is_active_sidebar( 'social-icons' ) ) { dynamic_sidebar( 'social-icons' ); }
