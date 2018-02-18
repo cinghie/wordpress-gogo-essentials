@@ -1,7 +1,7 @@
 Copyright Top Position
 -------------------
 
-To insert Footer Top Position insert in your theme something like:
+To insert Footer Copyright Top Position insert in your theme something like:
 
 ```
 <div class="copyright-top">
