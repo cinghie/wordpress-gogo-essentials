@@ -1,10 +1,10 @@
-Footer Top Position
+Copyright Top Position
 -------------------
 
 To insert Footer Top Position insert in your theme something like:
 
 ```
-<div class="footer-top">
+<div class="copyright-top">
 
     <div class="row">
         
