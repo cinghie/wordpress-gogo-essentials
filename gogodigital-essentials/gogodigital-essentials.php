@@ -33,7 +33,12 @@ class EssentialsSettingsPage
     {
         add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
         add_action( 'admin_init', array( $this, 'page_init' ) );
+	    add_action( 'init', array( $this, 'load_textdomain' ) );
     }
+
+	public function load_textdomain() {
+		load_plugin_textdomain('gogodigital-essentials', false, basename( __DIR__ ).'/lang' );
+	}
 
     /**
      * Add options page
@@ -41,7 +46,7 @@ class EssentialsSettingsPage
     public function add_plugin_page()
     {
         add_options_page(
-            'Essentials Settings Admin',
+	        __( 'Gogodigital Essentials Settings', 'gogodigital-essentials' ),
             'Essentials',
             'manage_options',
             'essentials-settings',
@@ -99,14 +104,14 @@ class EssentialsSettingsPage
 
         add_settings_section(
             'template_settings_id', // ID
-            'Framework Settings', // Title
+	        __( 'Framework Settings', 'gogodigital-essentials' ), // Title
             array( $this, 'print_framework_info' ), // Callback
             'template-settings' // Page
         );
 
         add_settings_field(
             'bootstrap',
-            'Load Bootstrap',
+	        __( 'Load Bootstrap', 'gogodigital-essentials' ),
             array( $this, 'bootstrap_callback' ),
             'template-settings',
             'template_settings_id'
@@ -114,7 +119,7 @@ class EssentialsSettingsPage
 
         add_settings_field(
             'fontawesome',
-            'Load Fontawesome',
+	        __( 'Load Fontawesome', 'gogodigital-essentials' ),
             array( $this, 'fontawesome_callback' ),
             'template-settings',
             'template_settings_id'
@@ -122,7 +127,7 @@ class EssentialsSettingsPage
 
         add_settings_field(
             'jqueryui',
-            'Load jQuery UI',
+	        __( 'Load jQuery UI', 'gogodigital-essentials' ),
             array( $this, 'jqueryui_callback' ),
             'template-settings',
             'template_settings_id'
@@ -130,7 +135,7 @@ class EssentialsSettingsPage
 
         add_settings_field(
             'jquerymobile',
-            'Load jQuery Mobile',
+	        __( 'Load jQuery Mobile', 'gogodigital-essentials' ),
             array( $this, 'jquerymobile_callback' ),
             'template-settings',
             'template_settings_id'
@@ -138,7 +143,7 @@ class EssentialsSettingsPage
 
         add_settings_field(
             'googlefonts',
-            'Load Google Fonts',
+	        __( 'Load Google Fonts', 'gogodigital-essentials' ),
             array( $this, 'googlefonts_callback' ),
             'template-settings',
             'template_settings_id'
@@ -146,14 +151,14 @@ class EssentialsSettingsPage
 
         add_settings_section(
             'widget_settings_id', // ID
-            'Widget Settings', // Title
+	        __( 'Widget Settings', 'gogodigital-essentials' ), // Title
             array( $this, 'print_widget_info' ), // Callback
             'template-settings' // Page
         );
 
         add_settings_field(
             'widgetcopyright',
-            'Copyright Widget Position',
+	        __( 'Copyright Widget Position', 'gogodigital-essentials' ),
             array( $this, 'widgetcopyright_callback' ),
             'template-settings',
             'widget_settings_id'
@@ -161,7 +166,7 @@ class EssentialsSettingsPage
 
         add_settings_field(
             'widgetcopyrighttop',
-            'Copyright Top Widget Position',
+	        __( 'Copyright Top Widget Position', 'gogodigital-essentials' ),
             array( $this, 'widgetcopyrighttop_callback' ),
             'template-settings',
             'widget_settings_id'
@@ -169,7 +174,7 @@ class EssentialsSettingsPage
 
         add_settings_field(
             'widgetsocialicons',
-            'Social Icons Widget Position',
+	        __( 'Social Icons Widget Position', 'gogodigital-essentials' ),
             array( $this, 'widgetsocialicons_callback' ),
             'template-settings',
             'widget_settings_id'
@@ -178,7 +183,9 @@ class EssentialsSettingsPage
 
     /**
      * Sanitize each setting field as needed
+     *
      * @param array $input Contains all settings fields as array keys
+     *
      * @return array
      */
     public function sanitize( $input )
@@ -213,22 +220,40 @@ class EssentialsSettingsPage
     }
 
     /**
-     * Print the Section text
+     * Print the Framework Settings text
      */
     public function print_framework_info()
     {
-        print 'Select which <strong>Framework</strong> do you wanna load on your Wordpress Theme';
+        print __( 'Select which <strong>Framework</strong> do you wanna load on your Wordpress Theme', 'gogodigital-essentials' );
     }
 
     /**
-     * Print the Section text
+     * Print the Widget Settings text
      */
     public function print_widget_info()
     {
-        print 'Select which <strong>Widget Position</strong> do you wanna register on your Wordpress Theme Widget';
+	    print __( 'Select which <strong>Widget Position</strong> do you wanna register on your Wordpress Theme Widget', 'gogodigital-essentials' );
     }
 
-    /**
+	/**
+	 * Print the Widget Examples text
+	 */
+	public function print_widget_examples()
+	{
+		print '<h3 style="border-top: 1px solid #ddd; padding-top: 12px">Widget Settings</h3>
+                <p>Remember to add manually the Widget Code on your Wordpress Theme</p>
+                <p class="description" id="tagline-description" style="background-color: #fcf8e3; border-color: #faebcc; border-radius: 4px; color: #8a6d3b; padding: 10px">
+                    if ( is_active_sidebar( \'footer-copyright\' ) ) { dynamic_sidebar( \'footer-copyright\' ); }
+                </p>
+                <p class="description" id="tagline-description" style="background-color: #fcf8e3; border-color: #faebcc; border-radius: 4px; color: #8a6d3b; padding: 10px">
+                    <a href="https://github.com/cinghie/wordpress-gogo-essentials/blob/master/docs/footer_top_position.md" target="_blank">Footer Copyright Top Example</a>
+                </p>
+                <p class="description" id="tagline-description" style="background-color: #fcf8e3; border-color: #faebcc; border-radius: 4px; color: #8a6d3b; padding: 10px">
+                    if ( is_active_sidebar( \'social-icons\' ) ) { dynamic_sidebar( \'social-icons\' ); }
+                </p>';
+	}
+
+	/**
      * Get the settings option array and print one of its values
      */
     public function bootstrap_callback()
