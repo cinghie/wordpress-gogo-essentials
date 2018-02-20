@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gogodigital Essentials 2.0.0\n"
 "Report-Msgid-Bugs-To: Gogodigital S.r.l.s. <info@gogodigital.it>\n"
-"POT-Creation-Date: 2018-02-19 09:26+0100\n"
+"POT-Creation-Date: 2018-02-21 00:45+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gogodigital S.r.l.s. <info@gogodigital.it>\n"
 "Language-Team: Gogodigital S.r.l.s. <info@gogodigital.it>\n"
@@ -18,57 +18,60 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
-"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
-"_nc:4c,1,2\n"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Generator: Poedit 2.0.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: gogodigital-essentials.php:49 gogodigital-essentials.php:66
+#: gogodigital-essentials.php:50 gogodigital-essentials.php:67
 msgid "Gogodigital Essentials Settings"
 msgstr "Impostazione Gogodigital Essentials"
 
-#: gogodigital-essentials.php:107
-msgid "Framework Settings"
-msgstr "Impostazioni Framework"
-
-#: gogodigital-essentials.php:114
-msgid "Load Bootstrap"
-msgstr "Carica Bootstrap"
-
-#: gogodigital-essentials.php:122
-msgid "Load Fontawesome"
-msgstr "Carica Fontawesome"
-
-#: gogodigital-essentials.php:130
-msgid "Load jQuery UI"
-msgstr "Carica jQuery UI"
-
-#: gogodigital-essentials.php:138
-msgid "Load jQuery Mobile"
-msgstr "Carica jQuery Mobile"
-
-#: gogodigital-essentials.php:146
-msgid "Load Google Fonts"
-msgstr "Carica Google Fonts"
-
-#: gogodigital-essentials.php:154
+#: gogodigital-essentials.php:78 gogodigital-essentials.php:155
 msgid "Widget Settings"
 msgstr "Impostazioni Widget"
 
-#: gogodigital-essentials.php:161
+#: gogodigital-essentials.php:79
+msgid "Remember to add manually the Widget Code on your Wordpress Theme"
+msgstr ""
+
+#: gogodigital-essentials.php:108
+msgid "Framework Settings"
+msgstr "Impostazioni Framework"
+
+#: gogodigital-essentials.php:115
+msgid "Load Bootstrap"
+msgstr "Carica Bootstrap"
+
+#: gogodigital-essentials.php:123
+msgid "Load Fontawesome"
+msgstr "Carica Fontawesome"
+
+#: gogodigital-essentials.php:131
+msgid "Load jQuery UI"
+msgstr "Carica jQuery UI"
+
+#: gogodigital-essentials.php:139
+msgid "Load jQuery Mobile"
+msgstr "Carica jQuery Mobile"
+
+#: gogodigital-essentials.php:147
+msgid "Load Google Fonts"
+msgstr "Carica Google Fonts"
+
+#: gogodigital-essentials.php:162
 msgid "Copyright Widget Position"
 msgstr "Posizione Copyright"
 
-#: gogodigital-essentials.php:169
+#: gogodigital-essentials.php:170
 msgid "Copyright Top Widget Position"
 msgstr "Posizione Copyright Top"
 
-#: gogodigital-essentials.php:177
+#: gogodigital-essentials.php:178
 msgid "Social Icons Widget Position"
 msgstr "Posizione Social Icons"
 
-#: gogodigital-essentials.php:227
+#: gogodigital-essentials.php:228
 msgid ""
 "Select which <strong>Framework</strong> do you wanna load on your Wordpress "
 "Theme"
@@ -76,7 +79,7 @@ msgstr ""
 "Seleziona quale <strong>Framework</strong> vuoi caricare nel tuo Tema "
 "Wordpress"
 
-#: gogodigital-essentials.php:235
+#: gogodigital-essentials.php:236
 msgid ""
 "Select which <strong>Widget Position</strong> do you wanna register on your "
 "Wordpress Theme Widget"
@@ -84,6 +87,60 @@ msgstr ""
 "Seleziona quale <strong>Posizione Widget</strong> vuoi registrare nel tuo "
 "Tema Wordpress"
 
-#: gogodigital-essentials.php:720
+#: gogodigital-essentials.php:397 gogodigital-essentials.php:399
+#: gogodigital-essentials.php:424 gogodigital-essentials.php:426
+#: gogodigital-essentials.php:451 gogodigital-essentials.php:453
+msgid "Not Active"
+msgstr "Non Attivo"
+
+#: gogodigital-essentials.php:721
 msgid "Settings"
 msgstr "Impostazioni"
+
+#: sidebar.php:1
+msgid "Donate $5, $10 or $20"
+msgstr ""
+
+#: sidebar.php:2
+msgid ""
+"If you like this plugin, consider supporting us donating the time to develop "
+"it"
+msgstr ""
+
+#: sidebar.php:11
+msgid "Some other ways to support this plugin"
+msgstr ""
+
+#: sidebar.php:15
+msgid "Leave a ★★★★★ review on WordPress.org"
+msgstr ""
+
+#: sidebar.php:20
+msgid "Tweet about this plugin"
+msgstr ""
+
+#: sidebar.php:25
+msgid "Add the plugin to your favourites on Wordpress.org"
+msgstr ""
+
+#: sidebar.php:29
+msgid "Looking for support?"
+msgstr ""
+
+#: sidebar.php:30
+msgid ""
+"Please use the <a href=\"https://wordpress.org/support/plugin/gogodigital-"
+"essentials\" target=\"_blank\">plugin support forums</a> on WordPress.org"
+msgstr ""
+
+#: sidebar.php:31
+msgid "Who are Us?"
+msgstr ""
+
+#: sidebar.php:34
+msgid ""
+"is a young and innovative Web Agency that deals with Professional Web Sites "
+"for Companies and Persons, Responsive Web Sites, CMS Sites and Ecommerce "
+"Portals, Custom CMS, Applications for Apple and Android devices, SEO "
+"Optimization, Web Marketing, Email Marketing and Social Media Marketing"
+msgstr ""
