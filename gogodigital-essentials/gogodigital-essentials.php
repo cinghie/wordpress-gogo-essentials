@@ -38,7 +38,7 @@ class EssentialsSettingsPage
     }
 
 	public function load_textdomain() {
-		load_plugin_textdomain('gogodigital-essentials', false, basename( __DIR__ ).'/lang' );
+		load_plugin_textdomain('gogodigital-essentials', false, basename( __DIR__ ).'/languages' );
 	}
 
     /**
