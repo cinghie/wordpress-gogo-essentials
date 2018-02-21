@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gogodigital Essentials 2.0.0\n"
 "Report-Msgid-Bugs-To: Gogodigital S.r.l.s. <info@gogodigital.it>\n"
-"POT-Creation-Date: 2018-02-21 00:45+0100\n"
+"POT-Creation-Date: 2018-02-21 01:00+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gogodigital S.r.l.s. <info@gogodigital.it>\n"
 "Language-Team: Gogodigital S.r.l.s. <info@gogodigital.it>\n"
@@ -71,7 +71,7 @@ msgstr "Posizione Copyright Top"
 msgid "Social Icons Widget Position"
 msgstr "Posizione Social Icons"
 
-#: gogodigital-essentials.php:228
+#: gogodigital-essentials.php:236
 msgid ""
 "Select which <strong>Framework</strong> do you wanna load on your Wordpress "
 "Theme"
@@ -79,7 +79,7 @@ msgstr ""
 "Seleziona quale <strong>Framework</strong> vuoi caricare nel tuo Tema "
 "Wordpress"
 
-#: gogodigital-essentials.php:236
+#: gogodigital-essentials.php:244
 msgid ""
 "Select which <strong>Widget Position</strong> do you wanna register on your "
 "Wordpress Theme Widget"
@@ -87,13 +87,22 @@ msgstr ""
 "Seleziona quale <strong>Posizione Widget</strong> vuoi registrare nel tuo "
 "Tema Wordpress"
 
-#: gogodigital-essentials.php:397 gogodigital-essentials.php:399
-#: gogodigital-essentials.php:424 gogodigital-essentials.php:426
-#: gogodigital-essentials.php:451 gogodigital-essentials.php:453
+#: gogodigital-essentials.php:405 gogodigital-essentials.php:407
+#: gogodigital-essentials.php:411 gogodigital-essentials.php:413
+#: gogodigital-essentials.php:432 gogodigital-essentials.php:434
+#: gogodigital-essentials.php:438 gogodigital-essentials.php:440
+#: gogodigital-essentials.php:459 gogodigital-essentials.php:461
+#: gogodigital-essentials.php:465 gogodigital-essentials.php:467
+msgid "Active"
+msgstr "Attivo"
+
+#: gogodigital-essentials.php:405 gogodigital-essentials.php:407
+#: gogodigital-essentials.php:432 gogodigital-essentials.php:434
+#: gogodigital-essentials.php:459 gogodigital-essentials.php:461
 msgid "Not Active"
 msgstr "Non Attivo"
 
-#: gogodigital-essentials.php:721
+#: gogodigital-essentials.php:737
 msgid "Settings"
 msgstr "Impostazioni"
 

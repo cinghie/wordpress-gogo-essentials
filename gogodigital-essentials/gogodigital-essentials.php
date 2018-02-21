@@ -402,9 +402,9 @@ class EssentialsSettingsPage
         $select  = '<select id="widgetcopyright" name="essentials_options[widgetcopyright]" aria-describedby="widget-copyright">';
 
         if( $this->options['widgetcopyright'] === 'not-active' ) {
-            $select .= '<option value="not-active" selected="selected">'.__( 'Not '.__( 'Active', 'gogodigital-essentials' ).'', 'gogodigital-essentials' ).'</option>';
+            $select .= '<option value="not-active" selected="selected">'.__( 'Not Active', 'gogodigital-essentials' ).'</option>';
         } else {
-            $select .= '<option value="not-active">'.__( 'Not '.__( 'Active', 'gogodigital-essentials' ).'', 'gogodigital-essentials' ).'</option>';
+            $select .= '<option value="not-active">'.__( 'Not Active', 'gogodigital-essentials' ).'</option>';
         }
 
         if( $this->options['widgetcopyright'] === 'active' ) {
@@ -429,9 +429,9 @@ class EssentialsSettingsPage
         $select  = '<select id="widgetcopyrighttop" name="essentials_options[widgetcopyrighttop]" aria-describedby="widget-copyright-top">';
 
         if( $this->options['widgetcopyrighttop'] === 'not-active' ) {
-            $select .= '<option value="not-active" selected="selected">'.__( 'Not '.__( 'Active', 'gogodigital-essentials' ).'', 'gogodigital-essentials' ).'</option>';
+            $select .= '<option value="not-active" selected="selected">'.__( 'Not Active', 'gogodigital-essentials' ).'</option>';
         } else {
-            $select .= '<option value="not-active">'.__( 'Not '.__( 'Active', 'gogodigital-essentials' ).'', 'gogodigital-essentials' ).'</option>';
+            $select .= '<option value="not-active">'.__( 'Not Active', 'gogodigital-essentials' ).'</option>';
         }
 
         if( $this->options['widgetcopyrighttop'] === 'active' ) {
@@ -456,9 +456,9 @@ class EssentialsSettingsPage
         $select  = '<select id="widgetsocialicons" name="essentials_options[widgetsocialicons]" aria-describedby="widget-social-icons">';
 
         if( $this->options['widgetsocialicons'] === 'not-active' ) {
-            $select .= '<option value="not-active" selected="selected">'.__( 'Not '.__( 'Active', 'gogodigital-essentials' ).'', 'gogodigital-essentials' ).'</option>';
+            $select .= '<option value="not-active" selected="selected">'.__( 'Not Active', 'gogodigital-essentials' ).'</option>';
         } else {
-            $select .= '<option value="not-active">'.__( 'Not '.__( 'Active', 'gogodigital-essentials' ).'', 'gogodigital-essentials' ).'</option>';
+            $select .= '<option value="not-active">'.__( 'Not Active', 'gogodigital-essentials' ).'</option>';
         }
 
         if( $this->options['widgetsocialicons'] === 'active' ) {
