@@ -171,6 +171,14 @@ class EssentialsSettingsPage
 		    'miscellaneous_settings_id'
 	    );
 
+	    add_settings_field(
+		    'themeupdate',
+		    __( 'Disable Theme Update', 'gogodigital-essentials' ),
+		    array( $this, 'themeupdate_callback' ),
+		    'template-settings',
+		    'miscellaneous_settings_id'
+	    );
+
 	    /**
 	     * Widget Settinga
 	     */
@@ -239,6 +247,10 @@ class EssentialsSettingsPage
 
 	    if( isset( $input['googleanalytics'] ) ) {
 		    $new_input['googleanalytics'] = sanitize_text_field( $input['googleanalytics'] );
+	    }
+
+	    if( isset( $input['themeupdate'] ) ) {
+		    $new_input['themeupdate'] = sanitize_text_field( $input['themeupdate'] );
 	    }
 
         if( isset( $input['widgetcopyright'] ) ) {
@@ -434,6 +446,33 @@ class EssentialsSettingsPage
 		);
 	}
 
+	/**
+	 * Get the settings option array and print one of its values
+	 */
+	public function themeupdate_callback()
+	{
+		$select  = '<select id="themeupdate" name="essentials_options[themeupdate]">';
+
+		if( $this->options['themeupdate'] === 'no' ) {
+			$select .= '<option value="no" selected="selected">'.__( 'No', 'gogodigital-essentials' ).'</option>';
+		} else {
+			$select .= '<option value="no">'.__( 'No', 'gogodigital-essentials' ).'</option>';
+		}
+
+		if( $this->options['themeupdate'] === 'yes' ) {
+			$select .= '<option value="yes" selected="selected">'.__( 'Yes', 'gogodigital-essentials' ).'</option>';
+		} else {
+			$select .= '<option value="yes">'.__( 'Yes', 'gogodigital-essentials' ).'</option>';
+		}
+
+		$select .= '</select>';
+
+		printf(
+			$select,
+			isset( $this->options['themeupdate'] ) ? esc_attr( $this->options['themeupdate']) : ''
+		);
+	}
+
     /**
      * Get the settings option array and print one of its values
      */
@@ -575,6 +614,21 @@ if( isset( $essentials_options['googlefonts'] ) ){
 if( isset( $essentials_options['googleanalytics'] ) ){
 	if ( $essentials_options['googleanalytics'] !== '' ) {
 		add_action( 'wp_head', 'add_google_analytics' );
+	}
+}
+
+// Disable Theme Update
+if( isset( $essentials_options['themeupdate'] ) ){
+	if ( $essentials_options['themeupdate'] === 'yes' ) {
+		add_filter( 'http_request_args', function ( $response, $url ) {
+			if ( 0 === strpos( $url, 'https://api.wordpress.org/themes/update-check' ) ) {
+				$themes = json_decode( $response['body']['themes'] );
+				unset( $themes->themes->{get_option( 'template' )} );
+				unset( $themes->themes->{get_option( 'stylesheet' )} );
+				$response['body']['themes'] = json_encode( $themes );
+			}
+			return $response;
+		}, 10, 2 );
 	}
 }
 
