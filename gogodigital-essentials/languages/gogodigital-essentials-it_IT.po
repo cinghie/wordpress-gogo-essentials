@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gogodigital Essentials 2.0.0\n"
 "Report-Msgid-Bugs-To: Gogodigital S.r.l.s. <info@gogodigital.it>\n"
-"POT-Creation-Date: 2018-02-26 20:53+0100\n"
+"POT-Creation-Date: 2018-02-26 21:19+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gogodigital S.r.l.s. <info@gogodigital.it>\n"
 "Language-Team: Gogodigital S.r.l.s. <info@gogodigital.it>\n"
@@ -27,7 +27,7 @@ msgstr ""
 msgid "Gogodigital Essentials Settings"
 msgstr "Impostazione Gogodigital Essentials"
 
-#: gogodigital-essentials.php:78 gogodigital-essentials.php:155
+#: gogodigital-essentials.php:78 gogodigital-essentials.php:179
 msgid "Widget Settings"
 msgstr "Impostazioni Widget"
 
@@ -36,49 +36,57 @@ msgid "Remember to add manually the Widget Code on your Wordpress Theme"
 msgstr ""
 "Ricordati di inserire manualmente il codice del Widget nel tuo tema Wordpress"
 
-#: gogodigital-essentials.php:108
+#: gogodigital-essentials.php:111
 msgid "Framework Settings"
 msgstr "Impostazioni Framework"
 
-#: gogodigital-essentials.php:115 gogodigital-essentials.php:279
-#: gogodigital-essentials.php:281 gogodigital-essentials.php:285
-#: gogodigital-essentials.php:287
+#: gogodigital-essentials.php:118 gogodigital-essentials.php:303
+#: gogodigital-essentials.php:305 gogodigital-essentials.php:309
+#: gogodigital-essentials.php:311
 msgid "Load Bootstrap"
 msgstr "Carica Bootstrap"
 
-#: gogodigital-essentials.php:123 gogodigital-essentials.php:312
-#: gogodigital-essentials.php:314 gogodigital-essentials.php:318
-#: gogodigital-essentials.php:320
+#: gogodigital-essentials.php:126 gogodigital-essentials.php:336
+#: gogodigital-essentials.php:338 gogodigital-essentials.php:342
+#: gogodigital-essentials.php:344
 msgid "Load Fontawesome"
 msgstr "Carica Fontawesome"
 
-#: gogodigital-essentials.php:131 gogodigital-essentials.php:345
-#: gogodigital-essentials.php:347
+#: gogodigital-essentials.php:134 gogodigital-essentials.php:369
+#: gogodigital-essentials.php:371
 msgid "Load jQuery UI"
 msgstr "Carica jQuery UI"
 
-#: gogodigital-essentials.php:139 gogodigital-essentials.php:372
-#: gogodigital-essentials.php:374
+#: gogodigital-essentials.php:142 gogodigital-essentials.php:396
+#: gogodigital-essentials.php:398
 msgid "Load jQuery Mobile"
 msgstr "Carica jQuery Mobile"
 
-#: gogodigital-essentials.php:147
+#: gogodigital-essentials.php:150
 msgid "Load Google Fonts"
 msgstr "Carica Google Fonts"
 
-#: gogodigital-essentials.php:162
+#: gogodigital-essentials.php:161
+msgid "Miscellaneous Settings"
+msgstr "Impostazioni Varie"
+
+#: gogodigital-essentials.php:168
+msgid "Google Analytics Code"
+msgstr "Codice Google Analytics"
+
+#: gogodigital-essentials.php:186
 msgid "Copyright Widget Position"
 msgstr "Posizione Copyright"
 
-#: gogodigital-essentials.php:170
+#: gogodigital-essentials.php:194
 msgid "Copyright Top Widget Position"
 msgstr "Posizione Copyright Top"
 
-#: gogodigital-essentials.php:178
+#: gogodigital-essentials.php:202
 msgid "Social Icons Widget Position"
 msgstr "Posizione Social Icons"
 
-#: gogodigital-essentials.php:236
+#: gogodigital-essentials.php:260
 msgid ""
 "Select which <strong>Framework</strong> do you wanna load on your Wordpress "
 "Theme"
@@ -86,7 +94,7 @@ msgstr ""
 "Seleziona quale <strong>Framework</strong> vuoi caricare nel tuo Tema "
 "Wordpress"
 
-#: gogodigital-essentials.php:244
+#: gogodigital-essentials.php:268
 msgid ""
 "Select which <strong>Widget Position</strong> do you wanna register on your "
 "Wordpress Theme Widget"
@@ -94,45 +102,49 @@ msgstr ""
 "Seleziona quale <strong>Posizione Widget</strong> vuoi registrare nel tuo "
 "Tema Wordpress"
 
-#: gogodigital-essentials.php:273 gogodigital-essentials.php:275
+#: gogodigital-essentials.php:297 gogodigital-essentials.php:299
 msgid "Not Load Bootstrap"
 msgstr "Non Caricare Bootstrap"
 
-#: gogodigital-essentials.php:306 gogodigital-essentials.php:308
+#: gogodigital-essentials.php:330 gogodigital-essentials.php:332
 msgid "Not Load Fontawesome"
 msgstr "Non Caricare Fontawesome"
 
-#: gogodigital-essentials.php:339 gogodigital-essentials.php:341
+#: gogodigital-essentials.php:363 gogodigital-essentials.php:365
 msgid "Not Load jQuery UI"
 msgstr "Non Caricare jQuery UI"
 
-#: gogodigital-essentials.php:366 gogodigital-essentials.php:368
+#: gogodigital-essentials.php:390 gogodigital-essentials.php:392
 msgid "Not Load jQuery Mobile"
 msgstr "Non Caricare jQuery Mobile"
 
-#: gogodigital-essentials.php:392
+#: gogodigital-essentials.php:416
 msgid "Comma separated Fonts like \"Open Sans,Roboto\""
 msgstr "Separa i Font con la virgola per esempio \"Open Sans,Roboto\""
 
-#: gogodigital-essentials.php:405 gogodigital-essentials.php:407
-#: gogodigital-essentials.php:432 gogodigital-essentials.php:434
-#: gogodigital-essentials.php:459 gogodigital-essentials.php:461
+#: gogodigital-essentials.php:428
+msgid "Example: UA-XXXXX-Y"
+msgstr "Esempio: UA-XXXXX-Y"
+
+#: gogodigital-essentials.php:441 gogodigital-essentials.php:443
+#: gogodigital-essentials.php:468 gogodigital-essentials.php:470
+#: gogodigital-essentials.php:495 gogodigital-essentials.php:497
 msgid "Not Active"
 msgstr "Non Attivo"
 
-#: gogodigital-essentials.php:411 gogodigital-essentials.php:413
-#: gogodigital-essentials.php:438 gogodigital-essentials.php:440
-#: gogodigital-essentials.php:465 gogodigital-essentials.php:467
+#: gogodigital-essentials.php:447 gogodigital-essentials.php:449
+#: gogodigital-essentials.php:474 gogodigital-essentials.php:476
+#: gogodigital-essentials.php:501 gogodigital-essentials.php:503
 msgid "Active"
 msgstr "Attivo"
 
-#: gogodigital-essentials.php:737
+#: gogodigital-essentials.php:773
 msgid "Settings"
 msgstr "Impostazioni"
 
 #: sidebar.php:1
 msgid "Donate €5, €10 or €20"
-msgstr "Dona 5€, 10€ o 20€ "
+msgstr "Dona 5€, 10€ o 20€"
 
 #: sidebar.php:2
 msgid ""
@@ -168,7 +180,7 @@ msgid ""
 msgstr ""
 "Puoi utilizzare <a href=\"https://wordpress.org/support/plugin/gogodigital-"
 "essentials\" target=\"_blank\">il forum di supporto del plugin</a> su "
-"WordPress.org."
+"WordPress.org"
 
 #: sidebar.php:31
 msgid "Who are Us?"

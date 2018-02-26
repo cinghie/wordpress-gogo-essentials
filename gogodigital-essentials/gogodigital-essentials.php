@@ -97,12 +97,15 @@ class EssentialsSettingsPage
      */
     public function page_init()
     {
-        register_setting(
+	    register_setting(
             'framework_group', // Option group
             'essentials_options', // Option name
             array( $this, 'sanitize' ) // Sanitize
         );
 
+	    /**
+	     * Framework Settinga
+	     */
         add_settings_section(
             'template_settings_id', // ID
 	        __( 'Framework Settings', 'gogodigital-essentials' ), // Title
@@ -150,6 +153,27 @@ class EssentialsSettingsPage
             'template_settings_id'
         );
 
+	    /**
+	     * Miscellaneous Settinga
+	     */
+	    add_settings_section(
+		    'miscellaneous_settings_id', // ID
+		    __( 'Miscellaneous Settings', 'gogodigital-essentials' ), // Title
+		    [], // Callback
+		    'template-settings' // Page
+	    );
+
+	    add_settings_field(
+		    'googleanalytics',
+		    __( 'Google Analytics Code', 'gogodigital-essentials' ),
+		    array( $this, 'googleanalytics_callback' ),
+		    'template-settings',
+		    'miscellaneous_settings_id'
+	    );
+
+	    /**
+	     * Widget Settinga
+	     */
         add_settings_section(
             'widget_settings_id', // ID
 	        __( 'Widget Settings', 'gogodigital-essentials' ), // Title
@@ -212,6 +236,10 @@ class EssentialsSettingsPage
         if( isset( $input['googlefonts'] ) ) {
             $new_input['googlefonts'] = sanitize_text_field( $input['googlefonts'] );
         }
+
+	    if( isset( $input['googleanalytics'] ) ) {
+		    $new_input['googleanalytics'] = sanitize_text_field( $input['googleanalytics'] );
+	    }
 
         if( isset( $input['widgetcopyright'] ) ) {
             $new_input['widgetcopyright'] = sanitize_text_field( $input['widgetcopyright'] );
@@ -394,6 +422,18 @@ class EssentialsSettingsPage
         );
     }
 
+	/**
+	 * Get the settings option array and print one of its values
+	 */
+	public function googleanalytics_callback()
+	{
+		printf(
+			'<input type="text" class="widefat" id="googleanalytics" name="essentials_options[googleanalytics]" value="%s" />
+             <p class="description" id="tagline-description">'.__( 'Example: UA-XXXXX-Y', 'gogodigital-essentials' ).'</p>',
+			isset( $this->options['googleanalytics'] ) ? esc_attr( $this->options['googleanalytics']) : ''
+		);
+	}
+
     /**
      * Get the settings option array and print one of its values
      */
@@ -489,9 +529,6 @@ if( is_admin() )  {
 
 $essentials_options = get_option('essentials_options');
 
-$googlefonts = str_replace(array( ' ', ',' ), array( '+', '|' ), $essentials_options['googlefonts']);
-$googlefonts = 'https://fonts.googleapis.com/css?family=' . $googlefonts;
-
 // Load Bootstrap
 if( isset( $essentials_options['bootstrap'] ) ) {
     if ( $essentials_options['bootstrap'] === 'load-3.3.7' ) {
@@ -525,10 +562,20 @@ if( isset( $essentials_options['jquerymobile'] ) ) {
 }
 
 // Load Google Fonts
-if( isset( $essentials_options['googlefonts'] ) ) {
+if( isset( $essentials_options['googlefonts'] ) ){
+	$googlefonts = str_replace(array( ' ', ',' ), array( '+', '|' ), $essentials_options['googlefonts']);
+	$googlefonts = 'https://fonts.googleapis.com/css?family=' . $googlefonts;
+
     if ( $essentials_options['googlefonts'] !== '' ) {
         add_action('wp_enqueue_scripts', 'theme_add_googlefonts');
     }
+}
+
+// Load Google Analytics
+if( isset( $essentials_options['googleanalytics'] ) ){
+	if ( $essentials_options['googleanalytics'] !== '' ) {
+		add_action( 'wp_head', 'add_google_analytics' );
+	}
 }
 
 // Load Copyright Widget Position
@@ -556,7 +603,7 @@ if( isset( $essentials_options['widgetsocialicons'] ) ) {
 }
 
 /**
- * Adding Bootstrap css and js
+ * Adding Bootstrap 3.3.7 css and js
  */
 function theme_add_bootstrap_337()
 {
@@ -565,7 +612,7 @@ function theme_add_bootstrap_337()
 }
 
 /**
- * Adding Bootstrap css and js from CDN
+ * Adding Bootstrap 4.0.0 css and js from CDN
  */
 function theme_add_bootstrap_400()
 {
@@ -574,7 +621,7 @@ function theme_add_bootstrap_400()
 }
 
 /**
- * Adding Fontawesome css and js
+ * Adding Fontawesome 4.0.7 css and js
  */
 function theme_add_fontawesome_470()
 {
@@ -582,7 +629,7 @@ function theme_add_fontawesome_470()
 }
 
 /**
- * Adding Fontawesome css and js from CDN
+ * Adding Fontawesome 5.0.6 css and js
  */
 function theme_add_fontawesome_506()
 {
@@ -590,7 +637,7 @@ function theme_add_fontawesome_506()
 }
 
 /**
- * Adding jQuery UI css and js
+ * Adding jQuery UI 1.12.1 css and js
  */
 function theme_add_jqueryui()
 {
@@ -599,7 +646,7 @@ function theme_add_jqueryui()
 }
 
 /**
- * Adding Bootstrap css and js
+ * Adding jQuery Mobile 1.4.5 css and js
  */
 function theme_add_jquerymobile()
 {
@@ -608,12 +655,30 @@ function theme_add_jquerymobile()
 }
 
 /**
- * Adding Fontawesome css and js
+ * Adding Google Fonts css
  */
 function theme_add_googlefonts()
 {
     global $googlefonts;
     wp_enqueue_style( 'googlefonts', $googlefonts, false);
+}
+
+/**
+ * Adding Google Analytics js
+ */
+function add_google_analytics()
+{
+	global $essentials_options;
+	$googleanalytics = $essentials_options['googleanalytics'];
+
+	$googleAnalyticsCode = "<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '".$googleanalytics."', 'auto');
+ga('send', 'pageview');
+</script>";
+
+	echo $googleAnalyticsCode;
 }
 
 /*
