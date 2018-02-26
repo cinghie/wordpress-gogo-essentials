@@ -270,21 +270,21 @@ class EssentialsSettingsPage
         $select  = '<select id="bootstrap" name="essentials_options[bootstrap]">';
 
         if( $this->options['bootstrap'] === 'not-load' ) {
-            $select .= '<option value="not-load" selected="selected">Not Load Bootstrap</option>';
+            $select .= '<option value="not-load" selected="selected">'.__( 'Not Load Bootstrap', 'gogodigital-essentials' ).'</option>';
         } else {
-            $select .= '<option value="not-load">Not Load Bootstrap</option>';
+            $select .= '<option value="not-load">'.__( 'Not Load Bootstrap', 'gogodigital-essentials' ).'</option>';
         }
+
+	    if( $this->options['bootstrap'] === 'load-4.0.0' ) {
+		    $select .= '<option value="load-4.0.0" selected="selected">'.__( 'Load Bootstrap', 'gogodigital-essentials' ).' 4.0.0</option>';
+	    } else {
+		    $select .= '<option value="load-4.0.0">'.__( 'Load Bootstrap', 'gogodigital-essentials' ).' 4.0.0</option>';
+	    }
 
         if( $this->options['bootstrap'] === 'load-3.3.7' ) {
-            $select .= '<option value="load-3.3.7" selected="selected">Load Bootstrap 3.3.7</option>';
+            $select .= '<option value="load-3.3.7" selected="selected">'.__( 'Load Bootstrap', 'gogodigital-essentials' ).' 3.3.7</option>';
         } else {
-            $select .= '<option value="load-3.3.7">Load Bootstrap 3.3.7</option>';
-        }
-
-        if( $this->options['bootstrap'] === 'load-4.0.0' ) {
-            $select .= '<option value="load-4.0.0" selected="selected">Load Bootstrap 4.0.0</option>';
-        } else {
-            $select .= '<option value="load-4.0.0">Load Bootstrap 4.0.0</option>';
+            $select .= '<option value="load-3.3.7">'.__( 'Load Bootstrap', 'gogodigital-essentials' ).' 3.3.7</option>';
         }
 
         $select .= '</select>';
@@ -303,21 +303,21 @@ class EssentialsSettingsPage
         $select  = '<select id="fontawesome" name="essentials_options[fontawesome]">';
 
         if( $this->options['fontawesome'] === 'not-load' ) {
-            $select .= '<option value="not-load" selected="selected">Not Load Fontawesome</option>';
+            $select .= '<option value="not-load" selected="selected">'.__( 'Not Load Fontawesome', 'gogodigital-essentials' ).'</option>';
         } else {
-            $select .= '<option value="not-load">Not Load Fontawesome</option>';
+            $select .= '<option value="not-load">'.__( 'Not Load Fontawesome', 'gogodigital-essentials' ).'</option>';
         }
+
+	    if( $this->options['fontawesome'] === 'load-5.0.6' ) {
+		    $select .= '<option value="load-5.0.6" selected="selected">'.__( 'Load Fontawesome', 'gogodigital-essentials' ).' 5.0.6</option>';
+	    } else {
+		    $select .= '<option value="load-5.0.6">'.__( 'Load Fontawesome', 'gogodigital-essentials' ).' 5.0.6</option>';
+	    }
 
         if( $this->options['fontawesome'] === 'load-4.7.0' ) {
-            $select .= '<option value="load-4.7.0"" selected="selected">Load Fontawesome 4.7.0</option>';
+            $select .= '<option value="load-4.7.0"" selected="selected">'.__( 'Load Fontawesome', 'gogodigital-essentials' ).' 4.7.0</option>';
         } else {
-            $select .= '<option value="load-4.7.0"">Load Fontawesome 4.7.0</option>';
-        }
-
-        if( $this->options['fontawesome'] === 'load-5.0.6' ) {
-            $select .= '<option value="load-5.0.6" selected="selected">Load Fontawesome 5.0.6</option>';
-        } else {
-            $select .= '<option value="load-5.0.6">Load Bootstrap 5.0.6</option>';
+            $select .= '<option value="load-4.7.0"">'.__( 'Load Fontawesome', 'gogodigital-essentials' ).' 4.7.0</option>';
         }
 
         $select .= '</select>';
@@ -336,15 +336,15 @@ class EssentialsSettingsPage
 		$select  = '<select id="jqueryui" name="essentials_options[jqueryui]">';
 
 		if( $this->options['jqueryui'] === 'not-load' ) {
-			$select .= '<option value="not-load" selected="selected">Not Load jQuery UI</option>';
+			$select .= '<option value="not-load" selected="selected">'.__( 'Not Load jQuery UI', 'gogodigital-essentials' ).'</option>';
 		} else {
-			$select .= '<option value="not-load">Not Load jQuery UI</option>';
+			$select .= '<option value="not-load">'.__( 'Not Load jQuery UI', 'gogodigital-essentials' ).'</option>';
 		}
 
 		if( $this->options['jqueryui'] === 'load-1.12.1' ) {
-			$select .= '<option value="load-1.12.1" selected="selected">Load jQuery UI 1.12.1</option>';
+			$select .= '<option value="load-1.12.1" selected="selected">'.__( 'Load jQuery UI', 'gogodigital-essentials' ).' 1.12.1</option>';
 		} else {
-			$select .= '<option value="load-1.12.1">Load jQuery UI 1.12.1</option>';
+			$select .= '<option value="load-1.12.1">'.__( 'Load jQuery UI', 'gogodigital-essentials' ).' 1.12.1</option>';
 		}
 
 		$select .= '</select>';
@@ -363,15 +363,15 @@ class EssentialsSettingsPage
         $select  = '<select id="jquerymobile" name="essentials_options[jquerymobile]">';
 
         if( $this->options['jquerymobile'] === 'not-load' ) {
-            $select .= '<option value="not-load" selected="selected">Not Load jQuery Mobile</option>';
+            $select .= '<option value="not-load" selected="selected">'.__( 'Not Load jQuery Mobile', 'gogodigital-essentials' ).'</option>';
         } else {
-            $select .= '<option value="not-load">Not Load jQuery Mobile</option>';
+            $select .= '<option value="not-load">'.__( 'Not Load jQuery Mobile', 'gogodigital-essentials' ).'</option>';
         }
 
         if( $this->options['jquerymobile'] === 'load-1.4.5' ) {
-            $select .= '<option value="load-1.4.5" selected="selected">Load jQuery Mobile 1.4.5</option>';
+            $select .= '<option value="load-1.4.5" selected="selected">'.__( 'Load jQuery Mobile', 'gogodigital-essentials' ).' 1.4.5</option>';
         } else {
-            $select .= '<option value="load-1.4.5">Load jQuery Mobile 1.4.5</option>';
+            $select .= '<option value="load-1.4.5">'.__( 'Load jQuery Mobile', 'gogodigital-essentials' ).' 1.4.5</option>';
         }
 
         $select .= '</select>';
@@ -389,7 +389,7 @@ class EssentialsSettingsPage
     {
         printf(
             '<input type="text" class="widefat" id="googlefonts" name="essentials_options[googlefonts]" value="%s" />
-             <p class="description" id="tagline-description">Comma separated Fonts like "Open Sans,Roboto"</p>',
+             <p class="description" id="tagline-description">'.__( 'Comma separated Fonts like "Open Sans,Roboto"', 'gogodigital-essentials' ).'</p>',
             isset( $this->options['googlefonts'] ) ? esc_attr( $this->options['googlefonts']) : ''
         );
     }
