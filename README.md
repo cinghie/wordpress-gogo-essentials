@@ -1,7 +1,15 @@
 Gogodigital Essentials for Wordpress
 ------------------------------------
 
-WP Gogo Essentials is a Wordpress Plugin to Manage Essentials settings on your Wordpress site
+WP Gogo Essentials is a Wordpress Plugin to Manage Essentials settings on your Wordpress site.
+
+## Copy folder with git from Terminal
+
+Go to folder wp-content/plugins/
+
+```
+git clone https://github.com/cinghie/wordpress-gogo-essentials.git gogodigital-essentials
+```
 
 # Features
 
